@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TikTok">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>TikTok (Présentation)</title>
+<style>
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  width:100%;
+  background:#000;
+  font-family:sans-serif;
+  color:#fff;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:320px; /* Limite pour iPhone 4 */
+  padding:10px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+.logo {
+  width:80px;  /* Réduit pour iPhone 4 */
+  height:80px;
+  margin-bottom:15px;
+  position:relative;
+}
+.logo img {
+  width:100%;
+  height:100%;
+}
+
+.loader {
+  width:40px;  /* Réduit pour iPhone 4 */
+  height:40px;
+  border:4px solid #333;
+  border-top:4px solid #00f2ff;
+  border-radius:50%;
+  animation: spin 1s linear infinite;
+  opacity:0;
+  margin-top:15px;
+}
+
+/* Animation logo */
+@keyframes moveLogo {
+  0% { top:0; }
+  100% { top:-15px; } /* Réduit le déplacement pour écran petit */
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo" id="logo">
+    <img src="logo/tiktok.png" alt="TikTok">
+  </div>
+  <div class="loader" id="loader"></div>
+</div>
+
+<script>
+var logo = document.getElementById('logo');
+var loader = document.getElementById('loader');
+
+// Attente 3 secondes avant de bouger le logo
+setTimeout(function(){
+  logo.style.animation = "moveLogo 1s ease forwards";
+  loader.style.opacity = 1;
+}, 3000);
+
+// Redirection après 5 secondes de chargement total
+setTimeout(function(){
+  window.location.href = "tiktok1.html";
+}, 8000); // 3s attente + 5s chargement = 8s total
+</script>
+
+</body>
+</html>
